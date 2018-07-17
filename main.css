@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'pokemon';
+  src: url('PocketMonk.woff') format('woff')
+}
+@font-face {
+  font-family: 'gameboy';
+  src: url('gameboy.woff') format('woff')
+}
+html {
+  margin: 0 auto;
+  background-image: url("images/map.png");
+  background-size: cover;
+  height:100%;
+}
+body {
+    background-color: rgba(118, 148, 0, 0.2);
+    margin: 0 auto;
+        font-family: 'gameboy', Fallback, sans-serif;
+        color: #142100;
+          text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
+          min-height:100%;
+}
+h1 {
+  font-family: 'pokemon', Fallback, sans-serif;
+  color: #ffcc03;
+  -webkit-text-stroke: 2px #4F45BF;
+  margin: 5px;
+  text-align: center;
+          text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
+}
+.pokeball{
+  height: 150px;
+}
+.container {
+  background-color: none;
+}
+.row {
+  background-color: none;
+}
+.col-sm, .col-lg {
+  background-color: #e0e5cc;
+ border: 2px solid #142100;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+    box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 2px 2px 0 rgba(58, 72, 38, 0.4);
+}
+.col-sm {
+  background-image: url("images/greensnow.gif");
+background-size: cover;
+}
+.col-lg {
+      text-align: left;
+      padding: 15px;
+
+}
+.hide {
+  visibility: collapse;
+}
+.open {
+  background-image: url("images/open.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

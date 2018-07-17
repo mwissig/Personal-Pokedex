@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <title>Pok&eacute;dex</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg"><h1>
+        <img src="images/spritepng.png" width="56px">
+        Milo's Pok&eacute;dex</h1></div>
+    </div>
+    <div class="row">
+      <div class="col-sm" id="col1">
+        <img id="pokeball1" class="pokeball" src="images/pokeball2.png" onmouseover="wobble1()" onmouseout="unWobble1()" onclick="openPokeball1()"><h1>Pok&eacute;mon 1</h1>
+      </div>
+      <div class="col-sm" id="col2">
+      <img  id="pokeball2" class="pokeball" src="images/pokeball2.png" onmouseover="wobble2()" onmouseout="unWobble2()" onclick="openPokeball2()"><h1>Pok&eacute;mon 2</h1>
+      </div>
+      <div class="col-sm" id="col3">
+      <img  id="pokeball3" class="pokeball" src="images/pokeball2.png" onmouseover="wobble3()" onmouseout="unWobble3()" onclick="openPokeball3()"><h1>Pok&eacute;mon 3</h1>
+      </div>
+    </div>
+        <div class="row">
+          <div id="displayStats" class="col-lg"><p>Display Pokemon information here</p>
+          <p>ATK: <b>34</b></p>
+          <p>SPEED:</p>
+        <p>DEF:</p>
+      <p>Bites anything when it attacks. Small and very quick, it is a common sight in many places.</p></div>
+        </div>
+  </div>
+  <script src="main.js"></script>
+
+</body>
+
+</html>
+
+<!-- You need a Trainer name
+
+HP, ATK, DEF, ABILITIES
+
+Pokemon belong to Trainer obj
+
+Trainer.get(pokemon)
+
+Display relevant info on at least 3 pokemon
+use any grid system  -->
+<!-- bg art from https://www.deviantart.com/creepypasta81691/art/Goldenrod-City-Pokemon-Red-and-Blue-304184449 -->

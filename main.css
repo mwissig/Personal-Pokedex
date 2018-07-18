@@ -7,7 +7,6 @@
   font-family: 'gameboy';
   src: url('gameboy.woff') format('woff')
 }
-
 html {
   margin: 0 auto;
   background-image: url("images/map.png");
@@ -15,7 +14,12 @@ html {
   background-attachment: fixed;
   height: 100%;
 }
-
+ul {
+  list-style-type: none;
+}
+li {
+      line-height: 3.5;
+}
 body {
   background-color: rgba(118, 148, 0, 0.2);
   margin: 0 auto;
@@ -25,7 +29,15 @@ body {
   text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
   min-height: 100%;
 }
-
+a, a:visited {
+color: #142100;
+    text-decoration: none;
+}
+a:hover, a:active {
+  color: #142100;
+  font-weight: bold;
+  text-decoration: none;
+}
 #header {
   margin: 0 !important;
   border-left: none;
@@ -34,13 +46,14 @@ body {
   background-color: rgb(158, 187, 236);
   box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
   background-image: url("images/tallgrass.png");
-background-repeat: repeat-x;
-background-position: bottom;
+  background-repeat: repeat-x;
+  background-position: bottom;
 }
 
 #footer {
   position: absolute;
   margin: 0 !important;
+  text-align: center;
   border-left: none;
   border-right: none;
   border-bottom: none;
@@ -51,6 +64,7 @@ background-position: bottom;
 
 #displayStats {
   height: 100%;
+  padding: 25px;
 }
 
 #leftbar {
@@ -66,9 +80,11 @@ h1, h2 {
   text-align: center;
   text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
 }
+
 h1 {
   font-size: 50px;
 }
+
 h2 {
   font-size: 40px;
 }
@@ -76,8 +92,9 @@ h2 {
 .pokeball {
   position: relative;
   height: 100%;
-  background: radial-gradient(transparent, black), url("images/static2.gif") ;
+  background: radial-gradient(transparent, black), url("images/static2.gif");
   background-size: cover;
+  text-align: center;
   box-shadow: inset 0px 0px 5px black !important;
 }
 
@@ -87,11 +104,11 @@ h2 {
 
 .pokeball img {
   max-height: 300px;
-
 }
 
 .pokeballIcon {
   height: 64px;
+  margin-right: 10px;
 }
 
 .container-fluid {
@@ -110,11 +127,12 @@ h2 {
   border: 2px solid #142100;
   margin: 5px;
   padding: 5px;
-  text-align: center;
   box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 2px 2px 0 rgba(58, 72, 38, 0.4);
   display: flex;
-align-items: center;
-justify-content: left;
+  align-items: center;
+  justify-content: left;
+  -webkit-filter: url(#monochrome);
+  filter: url(#monochrome);
 }
 
 .col-sm, .col-lg, .game {
@@ -122,7 +140,6 @@ justify-content: left;
   border: 2px solid #142100;
   margin: 5px;
   padding: 5px;
-  text-align: center;
   box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 2px 2px 0 rgba(58, 72, 38, 0.4);
 }
 
@@ -138,9 +155,7 @@ justify-content: left;
   background-color: white;
 }
 
-.col-sm {
-
-}
+.col-sm {}
 
 .col-lg {
   padding: 15px;
@@ -151,23 +166,32 @@ justify-content: left;
 }
 
 .open {
-  background-image: url("images/open.jpg");
+  background: radial-gradient(transparent, black), url("images/open.jpg");
   -webkit-background-size: cover;
- -moz-background-size: cover;
- -o-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .pokedexEntry span {
-vertical-align:bottom;
- }
+  vertical-align: bottom;
+}
+
 @media only screen and (max-width: 675px) {
   #footer {
-        position: sticky;
-    }
-    .icons {
-      font-size: 20px;
-    }
+    position: sticky;
+  }
+  .icons {
+    visibility: collapse;
+  }
+}
+
+.defs-only {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: none;
+  left: -100%;
 }

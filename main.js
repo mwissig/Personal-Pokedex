@@ -127,7 +127,6 @@ function openPokeball3() {
   document.getElementById("displayStats").innerHTML = "Loading...";
   document.getElementById("title").innerHTML = "Loading...";
   document.getElementById("name3").innerHTML = "Loading...";
-  intro.pause();
   intro.play();
   trainer.pokemon.pokemon3.load();
 }

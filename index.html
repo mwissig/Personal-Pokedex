@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
@@ -16,7 +17,35 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <audio id="loaded">
     <source src="sounds/exp_max.mp3" type="audio/mpeg">
 </audio>
-
+<audio id="tv">
+<source src="sounds/tv.wav" type="audio/wav">
+</audio>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg" id="header"><h1>
+      <!-- <img src="images/spritepng.png" width="56px"> --><span class="icons">
+      <i class="fas fa-bolt"></i> <i class="fas fa-tint"></i> <i class="fas fa-eye"></i></span>
+Milo's Pok&eacute;dex <span class="icons"><i class="fas fa-fire"></i> <i class="fas fa-leaf"></i> <i class="fas fa-bug"></i></span>
+</h1></div>
+  </div>
+  <div class="row" id="bodyRow">
+    <div class="col-sm" id="leftbar">
+        <div class="row pokedexEntry"><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball1" onclick="openPokeball1()"  onmouseover="wobble()" onmouseout="unWobble()"><span id="name1">?????</span></div>
+                <div class="row pokedexEntry"><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball2" onclick="openPokeball2()"  onmouseover="wobble()" onmouseout="unWobble()"><span id="name2">?????</span></div>
+                        <div class="row pokedexEntry"><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball3" onclick="openPokeball3()"  onmouseover="wobble()" onmouseout="unWobble()"><span id="name3">?????</span></div>
+                                  <div class="row pokedexEntry" id="displayStats"><span>Pok&eacute;dex</p></div>
+    </div>
+    <div class="col-sm pokeball" id="pokeball">
+      <img id="pokeballimg" src="images/pokeball2.png"><h2 id="title">Who's that Pok&eacute;mon?</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg" id="footer"><p>
+      <img src="images/spritepng.png" width="16px">
+      Milo's Pok&eacute;dex</p></div>
+  </div>
+</div>
+<!--
   <div class="container">
     <div class="row">
       <div class="col-lg"><h1>
@@ -37,7 +66,7 @@ href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
         <div class="row">
           <div class="col-lg nopad"><div id="displayStats" class="game"><p>Pok&eacute;dex</p></div></div>
         </div>
-  </div>
+  </div> -->
   <script src="main.js"></script>
 
 </body>

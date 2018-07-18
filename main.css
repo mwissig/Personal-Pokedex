@@ -8,6 +8,7 @@
 }
 html {
   margin: 0 auto;
+
   background-image: url("images/map.png");
   background-size: cover;
   height:100%;
@@ -15,6 +16,7 @@ html {
 body {
     background-color: rgba(118, 148, 0, 0.2);
     margin: 0 auto;
+    padding-top: 30px;
         font-family: 'gameboy', Fallback, sans-serif;
         color: #142100;
           text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
@@ -37,20 +39,25 @@ h1 {
 .row {
   background-color: none;
 }
-.col-sm, .col-lg {
+
+.col-sm, .col-lg, .game {
   background-color: #e0e5cc;
  border: 2px solid #142100;
-  margin: 5px;
-  padding: 5px;
+ margin: 5px;
+ padding: 5px;
   text-align: center;
     box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 2px 2px 0 rgba(58, 72, 38, 0.4);
+}
+.game {
+  margin: 0;
+  padding: 5px;
+    text-align: left;
 }
 .col-sm {
   background-image: url("images/greensnow.gif");
 background-size: cover;
 }
 .col-lg {
-      text-align: left;
       padding: 15px;
 
 }

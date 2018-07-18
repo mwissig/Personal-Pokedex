@@ -48,10 +48,14 @@ h1 {
   text-align: center;
     box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 2px 2px 0 rgba(58, 72, 38, 0.4);
 }
+.nopad {
+  padding: 0 !important;;
+}
 .game {
-  margin: 0;
+  margin: 4px !important;
   padding: 5px;
     text-align: left;
+    background-color: white;
 }
 .col-sm {
   background-image: url("images/greensnow.gif");

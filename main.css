@@ -1,20 +1,18 @@
 @font-face {
-  font-family: 'pokemon';
-  src: url('PocketMonk.woff') format('woff')
+  font-family: "pokemon";
+  src: url("PocketMonk.woff") format("woff");
 }
-
 @font-face {
-  font-family: 'gameboy';
-  src: url('gameboy.woff') format('woff')
+  font-family: "gameboy";
+  src: url("gameboy.woff") format("woff");
 }
-
 html {
   margin: 0 auto;
   background-image: url("images/map.png");
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 ul {
@@ -29,7 +27,7 @@ body {
   background-color: rgba(118, 148, 0, 0.2);
   margin: 0 auto;
   /* padding-top: 30px; */
-  font-family: 'gameboy', Fallback, sans-serif;
+  font-family: "gameboy", Fallback, sans-serif;
   color: #142100;
   text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
   min-height: 100%;
@@ -51,22 +49,31 @@ a:hover, a:active {
   border-left: none;
   border-right: none;
   border-top: none;
-  background-color: rgb(158, 187, 236);
-  box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
+  background-color: #9ebbec;
+  box-shadow: 0px 2px 0 rgba(58, 72, 38, 0.4);
   background-image: url("images/tallgrass.png");
   background-repeat: repeat-x;
   background-position: bottom;
 }
+
 #zed {
-  /* max-height: 400px; */
-  background:none;
+  min-width: 200px;
+  max-width: 300px;
+  background: none;
   border: none;
   overflow: hidden;
   box-shadow: none;
+  max-height: 80vh;
+  border-bottom: 2px solid #142100;
+    box-shadow: 0px 2px 0 rgba(58, 72, 38, 0.4);
+    padding: 0px;
+    margin: 0px;
 }
+
 #zed img {
   max-width: 100%;
 }
+
 #footer {
   position: absolute;
   margin: 0 !important;
@@ -90,7 +97,7 @@ a:hover, a:active {
 }
 
 h1, h2 {
-  font-family: 'pokemon', Fallback, sans-serif;
+  font-family: "pokemon", Fallback, sans-serif;
   color: #ffcc03;
   -webkit-text-stroke: 2px #4F45BF;
   margin: 5px;
@@ -115,8 +122,7 @@ h2 {
 
 #tvbox {
   text-align: center;
-  /* background-color: rgb(24, 24, 24); */
-  background: linear-gradient(rgb(24, 24, 24), rgb(5, 5, 5));
+  background: linear-gradient(#181818, #050505);
   padding: 10px;
   padding-left: 15px;
   padding-right: 15px;
@@ -128,25 +134,28 @@ h2 {
 
 .tvbutton {
   display: inline;
-  background-color: rgb(2,2,2);
-  color: rgb(24,24,24);
+  background-color: #020202;
+  color: #181818;
   min-height: 10px;
   min-width: 20px;
   border-radius: 3px;
   margin: 2px;
   border: 0;
   box-shadow: 0px 2px 4px black;
-    font-size: 5px;
+  font-size: 5px;
 }
+
 .on {
-  background-color: rgb(18,18,18);
+  background-color: #121212;
   color: white;
-      text-shadow: 0px 0px 2px white;
+  text-shadow: 0px 0px 2px white;
 }
-.light{
-color: red;
-    text-shadow: 0px 0px 2px red;
+
+.light {
+  color: red;
+  text-shadow: 0px 0px 2px red;
 }
+
 #bodyRow {
   height: 100%;
 }
@@ -194,7 +203,6 @@ color: red;
 
 .nopad {
   padding: 0 !important;
-  ;
 }
 
 .game {
@@ -203,8 +211,6 @@ color: red;
   text-align: left;
   background-color: white;
 }
-
-.col-sm {}
 
 .col-lg {
   padding: 15px;
@@ -229,7 +235,6 @@ color: red;
 }
 
 /* for the matrix transform */
-
 .defs-only {
   position: absolute;
   height: 0;
@@ -237,15 +242,24 @@ color: red;
   overflow: none;
   left: -100%;
 }
-
+@media only screen and (max-width: 800px) {
+  #footer {
+    position: sticky;
+  }
+}
 @media only screen and (max-width: 675px) {
   #footer {
     position: sticky;
   }
+
   .icons {
     visibility: collapse;
   }
+
   html {
     overflow: auto;
+  }
+  #zed {
+    max-height: 345px;
   }
 }

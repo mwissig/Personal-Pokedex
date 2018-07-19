@@ -1,0 +1,256 @@
+$light-green: #e0e5cc;
+$dark-green: #142100;
+$gb-shadow-color: rgba(58, 72, 38, 0.4);
+$pokemon-yellow: #ffcc03;
+$pokemon-blue: #4F45BF;
+
+@font-face {
+  font-family: 'pokemon';
+  src: url('PocketMonk.woff') format('woff')
+}
+
+@font-face {
+  font-family: 'gameboy';
+  src: url('gameboy.woff') format('woff')
+}
+
+html {
+  margin: 0 auto;
+  background-image: url("images/map.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  overflow: hidden;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  line-height: 3.5;
+}
+
+body {
+  background-color: rgba(118, 148, 0, 0.2);
+  margin: 0 auto;
+  /* padding-top: 30px; */
+  font-family: 'gameboy', Fallback, sans-serif;
+  color: $dark-green;
+  text-shadow: 2px 2px 0 $gb-shadow-color;
+  min-height: 100%;
+}
+
+a, a:visited {
+  color: $dark-green;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: $dark-green;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#header {
+  margin: 0 !important;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: rgb(158, 187, 236);
+  box-shadow: 0px 2px 0 $gb-shadow-color;
+  background-image: url("images/tallgrass.png");
+  background-repeat: repeat-x;
+  background-position: bottom;
+}
+#zed {
+  /* max-height: 400px; */
+  background:none;
+  border: none;
+  overflow: hidden;
+  box-shadow: none;
+}
+#zed img {
+  max-width: 100%;
+}
+#footer {
+  position: absolute;
+  margin: 0 !important;
+  text-align: center;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  box-shadow: none;
+  background-color: white;
+  bottom: 0 !important;
+}
+
+#displayStats {
+  height: 100%;
+  padding: 25px;
+}
+
+#leftbar {
+  height: 100%;
+  background-color: $light-green;
+}
+
+h1, h2 {
+  font-family: 'pokemon', Fallback, sans-serif;
+  color: $pokemon-yellow;
+  -webkit-text-stroke: 2px $pokemon-blue;
+  margin: 5px;
+  text-align: center;
+  text-shadow: 2px 2px 0 $gb-shadow-color;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+.pokeball {
+  background: radial-gradient(transparent, black), url("images/static2.gif");
+  background-size: cover;
+  text-align: center;
+  box-shadow: 0px 0px 5px black, inset 0px 0px 5px black;
+}
+
+#tvbox {
+  text-align: center;
+  background: linear-gradient(rgb(24, 24, 24), rgb(5, 5, 5));
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 2px 2px 0 $gb-shadow-color, inset 0px 0px 5px black;
+  border: 0px;
+  border-radius: 3px;
+  max-height: 68vh;
+}
+
+.tvbutton {
+  display: inline;
+  background-color: rgb(2,2,2);
+  color: rgb(24,24,24);
+  min-height: 10px;
+  min-width: 20px;
+  border-radius: 3px;
+  margin: 2px;
+  border: 0;
+  box-shadow: 0px 2px 4px black;
+    font-size: 5px;
+}
+.on {
+  background-color: rgb(18,18,18);
+  color: white;
+      text-shadow: 0px 0px 2px white;
+}
+.light{
+color: red;
+    text-shadow: 0px 0px 2px red;
+}
+#bodyRow {
+  height: 100%;
+}
+
+.pokeball img {
+  max-height: 300px;
+}
+
+.pokeballIcon {
+  height: 64px;
+  margin-right: 10px;
+}
+
+.container-fluid {
+  background-color: none;
+  margin: 0 !important;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.row {
+  background-color: none;
+}
+
+.pokedexEntry {
+  background-color: white;
+  border: 2px solid $dark-green;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 0 $gb-shadow-color, inset 2px 2px 0 $gb-shadow-color;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  -webkit-filter: url(#monochrome);
+  filter: url(#monochrome);
+}
+
+.col-sm, .col-lg, .game {
+  background-color: $light-green;
+  border: 2px solid $dark-green;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 0 $gb-shadow-color, inset 2px 2px 0 $gb-shadow-color;
+}
+
+.nopad {
+  padding: 0 !important;
+  ;
+}
+
+.game {
+  margin: 4px !important;
+  padding: 5px;
+  text-align: left;
+  background-color: white;
+}
+
+.col-sm {}
+
+.col-lg {
+  padding: 15px;
+}
+
+.hide {
+  visibility: collapse;
+}
+
+.open {
+  background: radial-gradient(transparent, black), url("images/open.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.pokedexEntry span {
+  vertical-align: bottom;
+}
+
+/* for the matrix transform */
+
+.defs-only {
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: none;
+  left: -100%;
+}
+
+@media only screen and (max-width: 675px) {
+  #footer {
+    position: sticky;
+  }
+  .icons {
+    visibility: collapse;
+  }
+  html {
+    overflow: auto;
+  }
+}

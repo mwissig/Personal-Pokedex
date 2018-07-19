@@ -7,6 +7,7 @@
   font-family: 'gameboy';
   src: url('gameboy.woff') format('woff')
 }
+
 html {
   margin: 0 auto;
   background-image: url("images/map.png");
@@ -14,12 +15,15 @@ html {
   background-attachment: fixed;
   height: 100%;
 }
+
 ul {
   list-style-type: none;
 }
+
 li {
-      line-height: 3.5;
+  line-height: 3.5;
 }
+
 body {
   background-color: rgba(118, 148, 0, 0.2);
   margin: 0 auto;
@@ -29,15 +33,18 @@ body {
   text-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4);
   min-height: 100%;
 }
+
 a, a:visited {
-color: #142100;
-    text-decoration: none;
+  color: #142100;
+  text-decoration: none;
 }
+
 a:hover, a:active {
   color: #142100;
   font-weight: bold;
   text-decoration: none;
 }
+
 #header {
   margin: 0 !important;
   border-left: none;
@@ -90,14 +97,42 @@ h2 {
 }
 
 .pokeball {
-  position: relative;
-  height: 100%;
   background: radial-gradient(transparent, black), url("images/static2.gif");
   background-size: cover;
   text-align: center;
-  box-shadow: inset 0px 0px 5px black !important;
+  box-shadow: 0px 0px 5px black, inset 0px 0px 5px black;
 }
 
+#tvbox {
+  text-align: center;
+  /* background-color: rgb(24, 24, 24); */
+  background: linear-gradient(rgb(24, 24, 24), rgb(5, 5, 5));
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 0px 0px 5px black;
+  border: 0px;
+  border-radius: 3px;
+}
+
+.tvbutton {
+  display: inline;
+  background-color: rgb(2,2,2);
+  min-height: 10px;
+  min-width: 20px;
+  border-radius: 3px;
+  margin: 2px;
+  border: 0;
+  box-shadow: 0px 2px 4px black;
+    font-size: 5px;
+}
+.on {
+  background-color: rgb(18,18,18);
+}
+.light{
+color: red;
+    text-shadow: 0px 0px 2px red;
+}
 #bodyRow {
   height: 100%;
 }
@@ -179,14 +214,7 @@ h2 {
   vertical-align: bottom;
 }
 
-@media only screen and (max-width: 675px) {
-  #footer {
-    position: sticky;
-  }
-  .icons {
-    visibility: collapse;
-  }
-}
+/* for the matrix transform */
 
 .defs-only {
   position: absolute;
@@ -194,4 +222,13 @@ h2 {
   width: 0;
   overflow: none;
   left: -100%;
+}
+
+@media only screen and (max-width: 675px) {
+  #footer {
+    position: sticky;
+  }
+  .icons {
+    visibility: collapse;
+  }
 }

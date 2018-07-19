@@ -48,24 +48,35 @@ Milo's Pok&eacute;dex <span class="icons"><i class="fas fa-fire"></i> <i class="
       <div class="col-sm" id="leftbar">
         <div class="row pokedexEntry">
           <ul>
-          <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball1" onclick="openPokeball1()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name1"> ?????</span></li>
-          <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball2" onclick="openPokeball2()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name2"> ?????</span></li>
-          <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball3" onclick="openPokeball3()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name3"> ?????</span></li>
-        </ul></div>
+            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball1" onclick="openPokeball1()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name1"> ?????</span></li>
+            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball2" onclick="openPokeball2()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name2"> ?????</span></li>
+            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball3" onclick="openPokeball3()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name3"> ?????</span></li>
+          </ul>
+        </div>
         <div class="row pokedexEntry" id="displayStats"><span>Pok&eacute;dex</p>
         </div>
     </div>
-    <div class="col-sm pokeball" id="pokeball">
+    <div class="col-sm" id="tvbox">
+    <div class="pokeball" id="pokeball">
       <img id="pokeballimg" src="images/pokeball2.png"><h2 id="title">Who's that Pok&eacute;mon?</h2>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-lg" id="footer"><p>
-      <img src="images/spritepng.png" width="16px">
-      Milo's Pok&eacute;dex made with <a href="https://pokeapi.co/">Pok&eacute;api</a></p></div>
-  </div>
-</div>
-  <script src="main.js"></script>
+      <span class="light">&middot;</span><button class="tvbutton on"><i class="fas fa-power-off"></i></button><button class="tvbutton">-</button><button class="tvbutton">+</button><button class="tvbutton"><i class="fas fa-caret-up"></i>
+
+</button><button class="tvbutton"><i class="fas fa-caret-down"></i>
+
+</button><button class="tvbutton"><i class="fas fa-ellipsis-h"></i>
+
+</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg" id="footer">
+          <p>
+            <img src="images/spritepng.png" width="16px"> Milo's Pok&eacute;dex made with <a href="https://pokeapi.co/">Pok&eacute;api</a></p>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
 
 </body>
 

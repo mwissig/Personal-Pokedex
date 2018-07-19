@@ -15,7 +15,7 @@ trainer = {
             var pokemon = JSON.parse(this.responseText);
                           document.getElementById('pokeball').classList.add('open');
             document.getElementById("displayStats").innerHTML = (`
-          <p>ATK: <b>${pokemon.stats[5].base_stat}</b> DEF: <b>${pokemon.stats[4].base_stat}</b></p>
+        <p>HP: <b>${pokemon.stats[5].base_stat}</b> ATK: <b>${pokemon.stats[4].base_stat}</b> DEF: <b>${pokemon.stats[3].base_stat}</b></p>
           <p>Abilities: <b>${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}</b></p>`);
             document.getElementById('pokeball1').src = pokemon.sprites.front_default;
             document.getElementById("title").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);
@@ -41,7 +41,7 @@ trainer = {
             var pokemon = JSON.parse(this.responseText);
                           document.getElementById('pokeball').classList.add('open');
             document.getElementById("displayStats").innerHTML = (`
-          <p>ATK: <b>${pokemon.stats[5].base_stat}</b> DEF: <b>${pokemon.stats[4].base_stat}</b></p>
+        <p>HP: <b>${pokemon.stats[5].base_stat}</b> ATK: <b>${pokemon.stats[4].base_stat}</b> DEF: <b>${pokemon.stats[3].base_stat}</b></p>
           <p>Abilities: <b>${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}, ${pokemon.abilities[2].ability.name}</b></p>`);
             document.getElementById('pokeball2').src = pokemon.sprites.front_default;
             document.getElementById("title").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);
@@ -67,7 +67,7 @@ trainer = {
             var pokemon = JSON.parse(this.responseText);
               document.getElementById('pokeball').classList.add('open');
             document.getElementById("displayStats").innerHTML = (`
-          <p>ATK: <b>${pokemon.stats[5].base_stat}</b> DEF: <b>${pokemon.stats[4].base_stat}</b></p>
+          <p>HP: <b>${pokemon.stats[5].base_stat}</b> ATK: <b>${pokemon.stats[4].base_stat}</b> DEF: <b>${pokemon.stats[3].base_stat}</b></p>
           <p>Abilities: <b>${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}</b></p>`);
             document.getElementById('pokeball3').src = pokemon.sprites.front_default;
             document.getElementById("title").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);

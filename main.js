@@ -4,18 +4,20 @@ var loadsound = document.getElementById("loaded");
 var tv = document.getElementById("tv");
 
 class Pokemon {
-constructor() {
-  this.name = name;
-  this.id = id;
-  this.hp = hp;
-  this.atk = atk;
-  this.def = def;
-  this.img = img;
-}
+  constructor() {
+    this.name = name;
+    this.id = id;
+    this.hp = hp;
+    this.atk = atk;
+    this.def = def;
+    this.img = img;
+    this.abilities = abilities;
+  }
 }
 
 Zed = {
-  pokemon: []};
+  pokemon: []
+};
 //trainer object containing pokemon
 trainer = {
   name: "Trainer name",
@@ -28,13 +30,6 @@ trainer = {
           if (this.readyState == 4 && this.status == 200) {
             var pokemon = JSON.parse(this.responseText);
             document.getElementById('pokeball').classList.add('open');
-            document.getElementById("displayStats").innerHTML = (`
-        <p>HP: <b>${pokemon.stats[5].base_stat}</b> ATK: <b>${pokemon.stats[4].base_stat}</b> DEF: <b>${pokemon.stats[3].base_stat}</b></p>
-          <p>Abilities: <b>${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}</b></p>`);
-            document.getElementById('pokeball1').src = pokemon.sprites.front_default;
-            document.getElementById("title").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);
-            document.getElementById('pokeballimg').src = 'images/132.png';
-            document.getElementById("name1").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);
             intro.pause();
             loadsound.play();
             name = pokemon.forms[0].name;
@@ -43,14 +38,30 @@ trainer = {
             atk = pokemon.stats[4].base_stat;
             def = pokemon.stats[3].base_stat;
             img = pokemon.sprites.front_default;
-            console.log(name);
-
+            abilities = [];
+            for (x = 0; x < pokemon.abilities.length; x++) {
+            abilities.push(pokemon.abilities[x].ability.name)
+}
             function addPokemon(name) {
               newPokemon = new Pokemon(name);
-Zed.pokemon.push(newPokemon);
+              Zed.pokemon.push(newPokemon);
+
+
             }
-addPokemon(name);
-console.log(Zed.pokemon);
+            addPokemon(name);
+            console.log(Zed.pokemon);
+
+
+            var i = Zed.pokemon.length - 1;
+            document.getElementById("displayStats").innerHTML = (`
+            <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
+            <p>Abilities: <b>${Zed.pokemon[i].abilities[0]}</b></p>`);
+            document.getElementById('pokeball3').src = Zed.pokemon[i].img;
+            document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+            document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
+            document.getElementById("name3").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+
+
           } else if (this.status == 504) {
             document.getElementById("displayStats").innerHTML = "Connection failed"
           }
@@ -87,10 +98,10 @@ console.log(Zed.pokemon);
 
             function addPokemon(name) {
               newPokemon = new Pokemon(name);
-Zed.pokemon.push(newPokemon);
+              Zed.pokemon.push(newPokemon);
             }
-addPokemon(name);
-console.log(Zed.pokemon);
+            addPokemon(name);
+            console.log(Zed.pokemon);
           } else if (this.status == 504) {
             document.getElementById("displayStats").innerHTML = "Connection failed"
           }
@@ -121,18 +132,18 @@ console.log(Zed.pokemon);
 
             function addPokemon(name) {
               newPokemon = new Pokemon(name);
-Zed.pokemon.push(newPokemon);
+              Zed.pokemon.push(newPokemon);
             }
-addPokemon(name);
-console.log(Zed.pokemon);
-var i = Zed.pokemon.length - 1;
-document.getElementById("displayStats").innerHTML = (`
-<p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${pokemon.stats[4].base_stat}</b> DEF: <b>${pokemon.stats[3].base_stat}</b></p>
+            addPokemon(name);
+            console.log(Zed.pokemon);
+            var i = Zed.pokemon.length - 1;
+            document.getElementById("displayStats").innerHTML = (`
+<p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
 <p>Abilities: <b>${pokemon.abilities[0].ability.name}, ${pokemon.abilities[1].ability.name}</b></p>`);
-document.getElementById('pokeball3').src = pokemon.sprites.front_default;
-document.getElementById("title").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);
-document.getElementById('pokeballimg').src = 'images/770.png';
-document.getElementById("name3").innerHTML = (`#${pokemon.id}: ${pokemon.forms[0].name}`);
+            document.getElementById('pokeball3').src = pokemon.sprites.front_default;
+            document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+            document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png'`);
+            document.getElementById("name3").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
 
           } else if (this.status == 504) {
             document.getElementById("displayStats").innerHTML = "Connection failed"

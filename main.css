@@ -245,4 +245,7 @@ color: red;
   .icons {
     visibility: collapse;
   }
+  html {
+    overflow: auto;
+  }
 }

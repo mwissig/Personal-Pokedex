@@ -45,13 +45,13 @@ Trainer Zed's Pok&eacute;dex <span class="icons"><i class="fas fa-fire"></i> <i 
 </h1></div>
     </div>
     <div class="row" id="bodyRow">
-            <div class="col-sm" id="zed"><img src="images/trainerzed.png"></div>
+            <div class="col-sm" id="zed"><img id="tz" src="images/trainerzed.png" onclick="Zed.get()" onmouseover="bounce()" onmouseout="unBounce()"></div>
       <div class="col-sm" id="leftbar">
         <div class="row pokedexEntry">
           <ul>
-            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball1" onclick="openPokeball1()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name1"> ?????</span></li>
-            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball2" onclick="openPokeball2()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name2"> ?????</span></li>
-            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball3" onclick="openPokeball3()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name3"> ?????</span></li>
+            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball0" onclick="load0()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name0"> ?????</span></li>
+            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball1" onclick="load1()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name1"> ?????</span></li>
+            <li><img src="images/pokeball_pixel.png" class="pokeballIcon" id="pokeball2" onclick="load2()" onmouseover="wobble()" onmouseout="unWobble()"><span id="name2"> ?????</span></li>
           </ul>
         </div>
         <div class="row pokedexEntry" id="displayStats"><span>Pok&eacute;dex</p>

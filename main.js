@@ -1,10 +1,11 @@
 // audio player for hold music
 var intro = document.getElementById("intro");
 var loadsound = document.getElementById("loaded");
+var tv = document.getElementById("tv");
 
 //trainer object containing pokemon
 trainer = {
-  name: "Milo",
+  name: "Trainer name",
   pokemon: {
     pokemon1: {
       name: "ditto",

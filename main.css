@@ -14,6 +14,7 @@ html {
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
+  overflow: hidden;
 }
 
 ul {
@@ -56,7 +57,16 @@ a:hover, a:active {
   background-repeat: repeat-x;
   background-position: bottom;
 }
-
+#zed {
+  /* max-height: 400px; */
+  background:none;
+  border: none;
+  overflow: hidden;
+  box-shadow: none;
+}
+#zed img {
+  max-width: 100%;
+}
 #footer {
   position: absolute;
   margin: 0 !important;
@@ -113,11 +123,13 @@ h2 {
   box-shadow: 2px 2px 0 rgba(58, 72, 38, 0.4), inset 0px 0px 5px black;
   border: 0px;
   border-radius: 3px;
+  max-height: 68vh;
 }
 
 .tvbutton {
   display: inline;
   background-color: rgb(2,2,2);
+  color: rgb(24,24,24);
   min-height: 10px;
   min-width: 20px;
   border-radius: 3px;
@@ -128,6 +140,8 @@ h2 {
 }
 .on {
   background-color: rgb(18,18,18);
+  color: white;
+      text-shadow: 0px 0px 2px white;
 }
 .light{
 color: red;

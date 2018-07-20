@@ -13,7 +13,7 @@ var i = 0;
 
 //show "loading" animations and sounds
 function loadAnimation() {
-          document.getElementById('pokeballimg').classList.remove('black');
+  document.getElementById('pokeballimg').classList.remove('black');
   tv.play();
   document.getElementById('pokeballimg').src = 'images/load.gif';
   document.getElementById('pokeball').classList.remove('open');
@@ -29,7 +29,7 @@ function endLoadAnimation() {
 }
 //displays onnly the pokemon on TV
 function displayPokemonOnTV() {
-            document.getElementById('pokeballimg').classList.remove('black');
+  document.getElementById('pokeballimg').classList.remove('black');
   document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
   document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
 }
@@ -42,7 +42,7 @@ function displayStatsOnly() {
 
 //displays all info on a pokemon
 function displayAllPokeInfo() {
-            document.getElementById('pokeballimg').classList.remove('black');
+  document.getElementById('pokeballimg').classList.remove('black');
   document.getElementById("displayStats").innerHTML = (`
       <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
       <p>Abilities: <b>${abilityLists[i]}</b></p>`);
@@ -116,7 +116,7 @@ Zed = {
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var pokemon = JSON.parse(this.responseText);
-                    i = 1;
+          i = 1;
           endLoadAnimation();
           name = pokemon.forms[0].name;
           id = pokemon.id;
@@ -148,7 +148,7 @@ Zed = {
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var pokemon = JSON.parse(this.responseText);
-                    i = 2;
+          i = 2;
           endLoadAnimation();
           name = pokemon.forms[0].name;
           id = pokemon.id;
@@ -256,9 +256,9 @@ function load2() {
 function pokeTV() {
   number = prompt("Please enter a 3 digit number")
   loadAnimation();
-      endLoadAnimation();
-        document.getElementById('pokeballimg').classList.add('black');
-        document.getElementById('pokeballimg').src = (`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${number}.png`);
-          document.getElementById("title").innerHTML = "#" + number + " ???";
-            document.getElementById("displayStats").innerHTML = "No data available"
+  endLoadAnimation();
+  document.getElementById('pokeballimg').classList.add('black');
+  document.getElementById('pokeballimg').src = (`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${number}.png`);
+  document.getElementById("title").innerHTML = "#" + number + " ???";
+  document.getElementById("displayStats").innerHTML = "No data available"
 }

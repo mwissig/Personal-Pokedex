@@ -2,34 +2,88 @@
 var intro = document.getElementById("intro");
 var loadsound = document.getElementById("loaded");
 var tv = document.getElementById("tv");
+
+//variables
 var pokemon0called = false;
 var pokemon1called = false;
 var pokemon2called = false;
-var abilityList0 = "";
-var abilityList1 = "";
-var abilityList2 = "";
+var abilityLists = [];
+var pokemon = {};
+var i = 0;
 
+//show "loading" animations and sounds
+function loadAnimation() {
+  tv.play();
+  document.getElementById('pokeballimg').src = 'images/load.gif';
+  document.getElementById('pokeball').classList.remove('open');
+  document.getElementById("displayStats").innerHTML = "Loading..."
+  document.getElementById("title").innerHTML = "Loading...";
+  intro.play();
+}
+//animation and sounds for when API is connected
+function endLoadAnimation() {
+  document.getElementById('pokeball').classList.add('open');
+  intro.pause();
+  loadsound.play();
+}
+//displays onnly the pokemon on TV
+function displayPokemonOnTV() {
+  document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
+  document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+}
+//displays only the stats
+function displayStatsOnly() {
+  document.getElementById("displayStats").innerHTML = (`
+      <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
+      <p>Abilities: <b>${abilityLists[i]}</b></p>`);
+}
+
+//displays all info on a pokemon
+function displayAllPokeInfo() {
+  document.getElementById("displayStats").innerHTML = (`
+      <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
+      <p>Abilities: <b>${abilityLists[i]}</b></p>`);
+  document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
+  document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+  document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
+  document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+}
+//show this if there are no stats loaded
+function pleaseClickZed() {
+  document.getElementById("displayStats").innerHTML = "Stats not loaded yet. Click on Sean Connery to load data.";
+}
+//trainer containting pokemon; makes 3 separate calls to API that push the pokemon into array one at a time: intentionally does not call them all at once to emphasize load animation and music
 Zed = {
   pokemon: [],
+  //returns an array containing all pokemon to the console
   all: function() {
-    console.log(Zed.pokemon);
+    console.log(this.pokemon);
   },
-  get: function() {
+  //returns each pokemon to the console when called by name
+  get: function(name) {
+    if (name == "ditto") {
+      return this.pokemon[0];
+      console.log(this.pokemon[0]);
+    } else if (name == "mantyke") {
+      return this.pokemon[1];
+      console.log(this.pokemon[1]);
+    } else if (name == "palossand") {
+      return this.pokemon[2];
+      console.log(this.pokemon[2]);
+    } else {
+      console.log("No Pokemon data found for this name");
+    }
+  },
+  //calls API, plays sounds and changes images, adds pokemon data to object and displays that data, loads a different pokemon each time
+  callAPI: function() {
     if (pokemon0called == false) {
-      console.log('working');
-      tv.play();
-      document.getElementById('pokeballimg').src = 'images/load.gif';
-      document.getElementById('pokeball').classList.remove('open');
-      document.getElementById("displayStats").innerHTML = "Loading..."
-      document.getElementById("title").innerHTML = "Loading...";
-      intro.play();
+      loadAnimation();
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var pokemon = JSON.parse(this.responseText);
-          document.getElementById('pokeball').classList.add('open');
-          intro.pause();
-          loadsound.play();
+          i = 0;
+          endLoadAnimation();
           name = pokemon.forms[0].name;
           id = pokemon.id;
           hp = pokemon.stats[5].base_stat;
@@ -37,43 +91,30 @@ Zed = {
           def = pokemon.stats[3].base_stat;
           img = pokemon.sprites.front_default;
           abilities = [];
+          abilityList = "";
           for (x = 0; x < pokemon.abilities.length; x++) {
             abilities.push(pokemon.abilities[x].ability.name);
           }
           addPokemon(name);
           console.log(Zed.pokemon);
-          var i = Zed.pokemon.length - 1;
           for (y = 0; y < Zed.pokemon[i].abilities.length; y++) {
-            abilityList0 += Zed.pokemon[i].abilities[y] + " ";
-
+            abilityList += Zed.pokemon[i].abilities[y] + " ";
           }
-          document.getElementById("displayStats").innerHTML = (`
-              <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
-              <p>Abilities: <b>${abilityList0}</b></p>`);
-          document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
-          document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
-          document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
-          document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+          abilityLists.push(abilityList);
+          displayAllPokeInfo();
         }
       };
       xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/132/", true);
       xhttp.send();
       pokemon0called = true;
     } else if (pokemon0called == true && pokemon1called == false) {
-      console.log('working');
-      tv.play();
-      document.getElementById('pokeballimg').src = 'images/load.gif';
-      document.getElementById('pokeball').classList.remove('open');
-      document.getElementById("displayStats").innerHTML = "Loading..."
-      document.getElementById("title").innerHTML = "Loading...";
-      intro.play();
+      loadAnimation();
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var pokemon = JSON.parse(this.responseText);
-          document.getElementById('pokeball').classList.add('open');
-          intro.pause();
-          loadsound.play();
+                    i = 1;
+          endLoadAnimation();
           name = pokemon.forms[0].name;
           id = pokemon.id;
           hp = pokemon.stats[5].base_stat;
@@ -81,43 +122,31 @@ Zed = {
           def = pokemon.stats[3].base_stat;
           img = pokemon.sprites.front_default;
           abilities = [];
+          abilityList = "";
           for (x = 0; x < pokemon.abilities.length; x++) {
             abilities.push(pokemon.abilities[x].ability.name);
           }
           addPokemon(name);
           console.log(Zed.pokemon);
-          var i = Zed.pokemon.length - 1;
-          for (y = 0; y < Zed.pokemon[i].abilities.length; y++) {
-            abilityList1 += Zed.pokemon[i].abilities[y] + " ";
 
+          for (y = 0; y < Zed.pokemon[i].abilities.length; y++) {
+            abilityList += Zed.pokemon[i].abilities[y] + " ";
           }
-          document.getElementById("displayStats").innerHTML = (`
-              <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
-              <p>Abilities: <b>${abilityList1}</b></p>`);
-          document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
-          document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
-          document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
-          document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+          abilityLists.push(abilityList);
+          displayAllPokeInfo();
         }
       };
       xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/458/", true);
       xhttp.send();
       pokemon1called = true;
     } else if (pokemon1called == true && pokemon2called == false) {
-      console.log('working');
-      tv.play();
-      document.getElementById('pokeballimg').src = 'images/load.gif';
-      document.getElementById('pokeball').classList.remove('open');
-      document.getElementById("displayStats").innerHTML = "Loading..."
-      document.getElementById("title").innerHTML = "Loading...";
-      intro.play();
+      loadAnimation();
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           var pokemon = JSON.parse(this.responseText);
-          document.getElementById('pokeball').classList.add('open');
-          intro.pause();
-          loadsound.play();
+                    i = 2;
+          endLoadAnimation();
           name = pokemon.forms[0].name;
           id = pokemon.id;
           hp = pokemon.stats[5].base_stat;
@@ -125,23 +154,18 @@ Zed = {
           def = pokemon.stats[3].base_stat;
           img = pokemon.sprites.front_default;
           abilities = [];
+          abilityList = "";
           for (x = 0; x < pokemon.abilities.length; x++) {
             abilities.push(pokemon.abilities[x].ability.name);
           }
           addPokemon(name);
           console.log(Zed.pokemon);
-          var i = Zed.pokemon.length - 1;
-          for (y = 0; y < Zed.pokemon[i].abilities.length; y++) {
-            abilityList2 += Zed.pokemon[i].abilities[y] + " ";
 
+          for (y = 0; y < Zed.pokemon[i].abilities.length; y++) {
+            abilityList += Zed.pokemon[i].abilities[y] + " ";
           }
-          document.getElementById("displayStats").innerHTML = (`
-              <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
-              <p>Abilities: <b>${abilityList2}</b></p>`);
-          document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
-          document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
-          document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
-          document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+          abilityLists.push(abilityList);
+          displayAllPokeInfo();
         }
       };
       xhttp.open("GET", "https://pokeapi.co/api/v2/pokemon/770/", true);
@@ -170,7 +194,7 @@ function addPokemon(name) {
   Zed.pokemon.push(newPokemon);
 }
 
-//animation on hover
+//animations on hover
 function wobble() {
   document.getElementById('pokeballimg').classList.add('animated');
   document.getElementById('pokeballimg').classList.add('infinite');
@@ -195,48 +219,33 @@ function unBounce() {
   document.getElementById('tz').classList.remove('bounce');
 }
 
-
+//displays info already in pokemon object
 function load0() {
   if (pokemon0called == false) {
-    document.getElementById("displayStats").innerHTML = "Stats not loaded yet. Click on Sean Connery to load data.";
+    pleaseClickZed();
   } else {
     i = 0;
-    document.getElementById("displayStats").innerHTML = (`
-      <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
-      <p>Abilities: <b>${abilityList0}</b></p>`);
-    document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
-    document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
-    document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
-    document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+    displayStatsOnly();
+    displayPokemonOnTV();
   }
 }
 
 function load1() {
   if (pokemon1called == false) {
-    document.getElementById("displayStats").innerHTML = "Stats not loaded yet. Click on Sean Connery to load data.";
+    pleaseClickZed();
   } else {
     i = 1;
-    document.getElementById("displayStats").innerHTML = (`
-      <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
-      <p>Abilities: <b>${abilityList1}</b></p>`);
-    document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
-    document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
-    document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
-    document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+    displayStatsOnly();
+    displayPokemonOnTV();
   }
 }
 
 function load2() {
   if (pokemon2called == false) {
-    document.getElementById("displayStats").innerHTML = "Stats not loaded yet. Click on Sean Connery to load data.";
+    pleaseClickZed();
   } else {
     i = 2;
-    document.getElementById("displayStats").innerHTML = (`
-      <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
-      <p>Abilities: <b>${abilityList2}</b></p>`);
-    document.getElementById(`pokeball${i}`).src = Zed.pokemon[i].img;
-    document.getElementById("title").innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
-    document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
-    document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
+    displayStatsOnly();
+    displayPokemonOnTV();
   }
 }

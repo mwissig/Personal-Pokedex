@@ -229,6 +229,10 @@ h2 {
   visibility: collapse;
 }
 
+.black {
+  filter: brightness(0%);
+}
+
 .open {
   background: radial-gradient(transparent, black), url("images/open.jpg");
   -webkit-background-size: cover;
@@ -268,5 +272,63 @@ h2 {
 
   #zed {
     max-height: 345px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  html {
+    font-size: 12px;
+  }
+
+  #header {
+    max-height: 50px;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 25px;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h1, h2 {
+    -webkit-text-stroke: 0;
+    text-shadow: 2px 2px 0px #4F45BF;
+  }
+
+  #zed {
+    max-height: 150px;
+  }
+
+  .pokeball img {
+    max-height: 200px;
+  }
+
+  .pokeballIcon {
+    height: 32px;
+  }
+
+  #displayStats {
+    padding: 5px;
+  }
+
+  li {
+    line-height: 1;
+  }
+
+  .pokedexEntry {
+    padding: 0;
+  }
+}
+@media only screen and (min-height: 800px) {
+  #footer {
+    position: absolute;
   }
 }

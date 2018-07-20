@@ -252,13 +252,21 @@ function load2() {
     displayPokemonOnTV();
   }
 }
-//secret function to show any pokemon on the TV without connecting to the API
+//secret function to show any pokemon on the TV without connecting to the API: hotlinks from Nintendo and applies a 0% brightness filter to the image to create a silhouette. it will show zed's pokemon info if it has already been called
 function pokeTV() {
-  number = prompt("Please enter a 3 digit number")
-  loadAnimation();
-  endLoadAnimation();
-  document.getElementById('pokeballimg').classList.add('black');
-  document.getElementById('pokeballimg').src = (`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${number}.png`);
-  document.getElementById("title").innerHTML = "#" + number + " ???";
-  document.getElementById("displayStats").innerHTML = "No data available"
+  number = prompt("Please enter a 3 digit number");
+  if (number === '132' && pokemon0called == true) {
+    load0();
+  } else if (number === '458' && pokemon1called == true) {
+    load1();
+  } else if (number === '770' && pokemon2called == true) {
+    load2();
+  } else {
+    loadAnimation();
+    endLoadAnimation();
+    document.getElementById('pokeballimg').classList.add('black');
+    document.getElementById('pokeballimg').src = (`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${number}.png`);
+    document.getElementById("title").innerHTML = "#" + number + " ???";
+    document.getElementById("displayStats").innerHTML = "No data available"
+  }
 }

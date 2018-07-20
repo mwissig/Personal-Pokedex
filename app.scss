@@ -185,9 +185,11 @@ h2 {
   height: 64px;
   margin-right: 10px;
 }
+
 .pokeballIcon:hover {
-            filter:brightness(50%);
+  filter:brightness(50%);
 }
+
 .container-fluid {
   background-color: none;
   margin: 0 !important;
@@ -210,7 +212,11 @@ h2 {
   justify-content: left;
   -webkit-filter: url(#monochrome);
   filter: url(#monochrome);
-    text-transform: capitalize;
+  text-transform: capitalize;
+}
+
+.nocaps {
+  text-transform: none;
 }
 
 .col-lg,
@@ -241,9 +247,11 @@ h2 {
 .hide {
   visibility: collapse;
 }
+
 .black {
-          filter:brightness(0%);
+  filter:brightness(0%);
 }
+
 .open {
   background: radial-gradient(transparent, black), url("images/open.jpg");
   @include background-size(cover);
@@ -281,7 +289,6 @@ h2 {
   }
 }
 @media only screen and (max-width: 400px) {
-
   html {
     font-size: 8px;
   }
@@ -290,43 +297,52 @@ h2 {
   html {
     font-size: 12px;
   }
+
   #header {
     max-height: 50px;
     overflow: hidden;
   }
-  h1 {
-        font-size: 25px;
-        margin: 0;
-  }
-  h2 {
-      font-size: 20px;
-  }
-  h1, h2 {
 
-    -webkit-text-stroke: 0;
-    text-shadow: 2px 2px 0px $pokemon-blue;
+  h1 {
+    font-size: 25px;
+    margin: 0;
   }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h1,
+  h2 {
+    -webkit-text-stroke: 0;
+    text-shadow: 2px 2px 0 $pokemon-blue;
+  }
+
   #zed {
     max-height: 150px;
   }
+
   .pokeball img {
     max-height: 200px;
   }
+
   .pokeballIcon {
     height: 32px;
   }
+
   #displayStats {
     padding: 5px;
   }
+
   li {
     line-height: 1;
   }
+
   .pokedexEntry {
     padding: 0;
   }
 }
 @media only screen and (min-height: 800px) {
-
   #footer {
     position: absolute;
   }

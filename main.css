@@ -175,9 +175,11 @@ h2 {
   height: 64px;
   margin-right: 10px;
 }
+
 .pokeballIcon:hover {
-            filter:brightness(50%);
+  filter: brightness(50%);
 }
+
 .container-fluid {
   background-color: none;
   margin: 0 !important;
@@ -200,7 +202,11 @@ h2 {
   justify-content: left;
   -webkit-filter: url(#monochrome);
   filter: url(#monochrome);
-    text-transform: capitalize;
+  text-transform: capitalize;
+}
+
+.nocaps {
+  text-transform: none;
 }
 
 .col-lg,
@@ -301,9 +307,10 @@ h2 {
     font-size: 20px;
   }
 
-  h1, h2 {
+  h1,
+h2 {
     -webkit-text-stroke: 0;
-    text-shadow: 2px 2px 0px #4F45BF;
+    text-shadow: 2px 2px 0 #4F45BF;
   }
 
   #zed {

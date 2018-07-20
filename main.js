@@ -1,15 +1,14 @@
 // audio player for hold music
-var intro = document.getElementById("intro");
-var loadsound = document.getElementById("loaded");
-var tv = document.getElementById("tv");
+var intro = document.getElementById("intro"); //the pokemon intro theme song from gen 1 games
+var loadsound = document.getElementById("loaded"); //the little ding sound when the pokemon loads
+var tv = document.getElementById("tv"); //tv static noise
 
 //variables
-var pokemon0called = false;
+var pokemon0called = false; //checks whether each pokemon has been called from API
 var pokemon1called = false;
 var pokemon2called = false;
-var abilityLists = [];
-var pokemon = {};
-var i = 0;
+var abilityLists = []; //a container for the abilities stored as strings
+var i = 0; //the index of the pokemon
 
 //show "loading" animations and sounds
 function loadAnimation() {
@@ -35,6 +34,7 @@ function displayPokemonOnTV() {
 }
 //displays only the stats
 function displayStatsOnly() {
+      document.getElementById('displayStats').classList.remove('nocaps');
   document.getElementById("displayStats").innerHTML = (`
       <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
       <p>Abilities: <b>${abilityLists[i]}</b></p>`);
@@ -43,6 +43,7 @@ function displayStatsOnly() {
 //displays all info on a pokemon
 function displayAllPokeInfo() {
   document.getElementById('pokeballimg').classList.remove('black');
+    document.getElementById('displayStats').classList.remove('nocaps');
   document.getElementById("displayStats").innerHTML = (`
       <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
       <p>Abilities: <b>${abilityLists[i]}</b></p>`);
@@ -53,7 +54,8 @@ function displayAllPokeInfo() {
 }
 //show this if there are no stats loaded
 function pleaseClickZed() {
-  document.getElementById("displayStats").innerHTML = "Stats not loaded yet. Click on Sean Connery to load data.";
+      document.getElementById('displayStats').classList.add('nocaps');
+  document.getElementById("displayStats").innerHTML = (`Stats not loaded yet. Click on Sean Connery from the 1974 film "Zardoz" to load data.`);
 }
 //trainer containting pokemon; makes 3 separate calls to API that push the pokemon into array one at a time: intentionally does not call them all at once to emphasize load animation and music
 Zed = {
@@ -93,6 +95,7 @@ Zed = {
           atk = pokemon.stats[4].base_stat;
           def = pokemon.stats[3].base_stat;
           img = pokemon.sprites.front_default;
+          //makes an array of the abilities
           abilities = [];
           abilityList = "";
           for (x = 0; x < pokemon.abilities.length; x++) {
@@ -100,6 +103,7 @@ Zed = {
           }
           addPokemon(name);
           console.log(Zed.pokemon);
+          //prepares the list of abilities to be displayed as a string and stores that string in an array so they can be accessed by the same index number as the data inside the object
           for (y = 0; y < Zed.pokemon[i].abilities.length; y++) {
             abilityList += Zed.pokemon[i].abilities[y] + " ";
           }

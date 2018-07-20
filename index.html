@@ -22,11 +22,11 @@
   <audio id="tv">
 <source src="sounds/tv.wav" type="audio/wav">
 </audio>
+  <!-- Filter made using code from
+https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/
+with custom color, makes the pokemon API images match the rest of the page
+rgb values are converted into fraction of 255 on black channel to create color matrix-->
   <svg class="defs-only">
-    <!-- Filter made using code from
-    https://css-tricks.com/color-filters-can-turn-your-gray-skies-blue/
-  with custom color, makes the pokemon API images match the rest of the page
-rgb values are converted into percentage of 255 on black channel to create color matrix-->
   <filter id="monochrome" color-interpolation-filters="sRGB"
           x="0" y="0" height="100%" width="100%">
     <feColorMatrix type="matrix"
@@ -47,7 +47,7 @@ Trainer Zed's Pok&eacute;dex <span class="icons"><i class="fas fa-fire"></i> <i 
 </h1></div>
     </div>
     <div class="row" id="bodyRow">
-            <div class="col-sm" id="zed"><img id="tz" src="images/trainerzed.png" onclick="Zed.callAPI()" onmouseover="bounce()" onmouseout="unBounce()"></div>
+      <div class="col-sm" id="zed"><img id="tz" src="images/trainerzed.png" onclick="Zed.callAPI()" onmouseover="bounce()" onmouseout="unBounce()"></div>
       <div class="col-sm" id="leftbar">
         <div class="row pokedexEntry">
           <ul>
@@ -63,13 +63,8 @@ Trainer Zed's Pok&eacute;dex <span class="icons"><i class="fas fa-fire"></i> <i 
     <div class="pokeball" id="pokeball">
       <img id="pokeballimg" src="images/pokeball2.png" onerror='this.src="images/load.gif"'><h2 id="title">Who's that Pok&eacute;mon?</h2>
     </div>
-      <span class="light">&middot;</span><button class="tvbutton on" onclick="pokeTV()"><i class="fas fa-power-off"></i></button><button class="tvbutton">-</button><button class="tvbutton">+</button><button class="tvbutton"><i class="fas fa-caret-up"></i>
-
-</button><button class="tvbutton"><i class="fas fa-caret-down"></i>
-
-</button><button class="tvbutton"><i class="fas fa-ellipsis-h"></i>
-
-</button>
+    <!-- easter egg: the buttons work -->
+      <span class="light">&middot;</span><button class="tvbutton on" onclick="pokeTV()"><i class="fas fa-power-off"></i></button><button onclick="intro.pause()" class="tvbutton">-</button><button onclick="intro.play()" class="tvbutton">+</button><button class="tvbutton" onclick="loadsound.play()"><i class="fas fa-caret-up"></i></button><button class="tvbutton" onclick="tv.play()"><i class="fas fa-caret-down"></i></button><button class="tvbutton" onlclick="tv.pause()"><i class="fas fa-ellipsis-h"></i></button>
         </div>
       </div>
       <div class="row">

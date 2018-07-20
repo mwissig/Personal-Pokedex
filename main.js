@@ -267,7 +267,7 @@ function pokeTV() {
     load2();
   } else {
     loadAnimation();
-    endLoadAnimation();
+  intro.pause();
     document.getElementById('pokeballimg').classList.add('black');
     document.getElementById('pokeballimg').src = (`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${number}.png`);
     document.getElementById("title").innerHTML = "#" + number + " ???";

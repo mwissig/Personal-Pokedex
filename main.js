@@ -34,7 +34,7 @@ function displayPokemonOnTV() {
 }
 //displays only the stats
 function displayStatsOnly() {
-      document.getElementById('displayStats').classList.remove('nocaps');
+  document.getElementById('displayStats').classList.remove('nocaps');
   document.getElementById("displayStats").innerHTML = (`
       <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
       <p>Abilities: <b>${abilityLists[i]}</b></p>`);
@@ -43,7 +43,7 @@ function displayStatsOnly() {
 //displays all info on a pokemon
 function displayAllPokeInfo() {
   document.getElementById('pokeballimg').classList.remove('black');
-    document.getElementById('displayStats').classList.remove('nocaps');
+  document.getElementById('displayStats').classList.remove('nocaps');
   document.getElementById("displayStats").innerHTML = (`
       <p>HP: <b>${Zed.pokemon[i].hp}</b> ATK: <b>${Zed.pokemon[i].atk}</b> DEF: <b>${Zed.pokemon[i].def}</b></p>
       <p>Abilities: <b>${abilityLists[i]}</b></p>`);
@@ -54,7 +54,7 @@ function displayAllPokeInfo() {
 }
 //show this if there are no stats loaded
 function pleaseClickZed() {
-      document.getElementById('displayStats').classList.add('nocaps');
+  document.getElementById('displayStats').classList.add('nocaps');
   document.getElementById("displayStats").innerHTML = (`Stats not loaded yet. Click on Sean Connery from the 1974 film "Zardoz" to load data.`);
 }
 //trainer containting pokemon; makes 3 separate calls to API that push the pokemon into array one at a time: intentionally does not call them all at once to emphasize load animation and music
@@ -261,13 +261,16 @@ function pokeTV() {
   number = prompt("Please enter a 3 digit number");
   if (number === '132' && pokemon0called == true) {
     load0();
+    loadsound.play();
   } else if (number === '458' && pokemon1called == true) {
     load1();
+    loadsound.play();
   } else if (number === '770' && pokemon2called == true) {
     load2();
+    loadsound.play();
   } else {
     loadAnimation();
-  intro.pause();
+    intro.pause();
     document.getElementById('pokeballimg').classList.add('black');
     document.getElementById('pokeballimg').src = (`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${number}.png`);
     document.getElementById("title").innerHTML = "#" + number + " ???";

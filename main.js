@@ -30,6 +30,7 @@ function endLoadAnimation() {
 function displayPokemonOnTV() {
   document.getElementById('pokeballimg').classList.remove('black');
   document.getElementById('pokeballimg').src = (`images/${Zed.pokemon[i].id}.png`);
+    document.getElementById(`title`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
   document.getElementById(`name${i}`).innerHTML = (`#${Zed.pokemon[i].id}: ${Zed.pokemon[i].name}`);
 }
 //displays only the stats
@@ -234,6 +235,7 @@ function load0() {
     i = 0;
     displayStatsOnly();
     displayPokemonOnTV();
+      document.getElementById('pokeball').classList.add('open');
   }
 }
 
@@ -244,6 +246,7 @@ function load1() {
     i = 1;
     displayStatsOnly();
     displayPokemonOnTV();
+      document.getElementById('pokeball').classList.add('open');
   }
 }
 
@@ -254,6 +257,7 @@ function load2() {
     i = 2;
     displayStatsOnly();
     displayPokemonOnTV();
+      document.getElementById('pokeball').classList.add('open');
   }
 }
 //secret function to show any pokemon on the TV without connecting to the API: hotlinks from Nintendo and applies a 0% brightness filter to the image to create a silhouette. it will show zed's pokemon info if it has already been called
